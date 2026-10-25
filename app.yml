@@ -25,12 +25,18 @@ runtime:
 inputs:
   - name: recording
     required: true
+    mediaTypes:
+      - application/x-hdf5
     description: >-
       One NWB file. The writer reads the single file matching *.nwb in
       INPUT_DIR and fails if that directory holds none or several.
 
 outputs:
   - name: bundle
+    mediaTypes:
+      - application/vnd.pennsieve.ts-zarr
+    formats:
+      - format_3915
     description: >-
       One Zarr v3 bundle written into OUTPUT_DIR, named for the input file stem:
       session.nwb produces session.zarr. The directory appears in one atomic
